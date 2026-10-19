@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <title>🧱 Brick Breaker Game</title>
+</head>
+<body>
+    <main class="main">
+
+        <section class="menu" id="menu">
+            <div class="title">BRICK<br>BREAKER</div>
+            <div class="menu-button">
+                <button type="button" class="btn" id="start">PLAY</button>
+                <button type="button" class="btn" id="controlsBtn">CONTROLS</button>
+            </div>
+        </section>
+
+        <section class="controls" id="controls">
+            <div class="title">CONTROLS</div>
+            <div class="controls-container">
+                <div class="value">
+                    <p>LEFT</p>
+                    <p>RIGHT</p>
+                    <p>START</p>
+                </div>
+                <div class="key">
+                    <p>A / Left Arrow</p>
+                    <p>D / Right Arrow</p>
+                    <p>Space</p>
+                </div>
+            </div>
+            <button type="button" class="btn" id="back">BACK</button>
+        </section>
+
+        <section class="game" id="game">
+            <div class="top-bar">
+                <div class="health">
+                    <div class="live"></div>
+                    <div class="live"></div>
+                    <div class="live"></div>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <p>SCORE:</p>
+                        <span id="score">0</span>
+                    </div>
+                    <div class="stat">
+                        <p>LEVEL:</p>
+                        <span id="level">1</span>
+                    </div>
+                </div>
+            </div>
+            <canvas class="canvas" id="canvas"></canvas>
+
+            <section class="over" id="over">
+                <div class="title">GAME<br>OVER</div>
+                <button type="button" class="btn" id="restart">RESTART</button>
+            </section>
+
+            <section class="pause" id="pause">
+                <div class="title">PAUSE</div>
+            </section>
+
+            <button type="button" class="btn pause-resume" id="pauseResume">⏸</button>
+        </section>
+
+    </main>
+
+    <script type="module" src="./src/Main.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jaro";
+    cursor: default;
+    image-rendering: pixelated;
+}
+
+:root {
+    --bg-color: rgb(0,40,50);
+    --black: rgb(20,20,20);
+    --white: rgb(220,220,220);
+}
+
+body {
+    background-color: var(--bg-color);
+    overflow: hidden;
+}
+
+.main {
+    width: 100%;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0 0 12vmin var(--black);
+}
+
+button {
+    cursor: pointer;
+    transition: 0.1s ease;
+    outline: none;
+}
+
+button:hover {
+    border-radius: 3vmin;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.menu,
+.game,
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14vmin;
+}
+
+.game {
+    gap: 4vmin;
+}
+
+.title {
+    color: var(--white);
+    font-size: 16vmin;
+    text-align: center;
+    line-height: 1;
+    text-shadow: -4px 4px 0 var(--black);
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 3vmin;
+}
+
+.btn {
+    color: var(--white);
+    font-size: 6vmin;
+    background: none;
+    border: 2px solid var(--white);
+    padding: 2vmin;
+    box-shadow: -4px 4px 0 var(--black);
+}
+
+.controls-container {
+    display: flex;
+    flex-direction: row;
+    gap: 18vmin;
+}
+
+.value,
+.key {
+    color: var(--white);
+    font-size: 4vmin;
+    display: block;
+    flex-direction: column;
+    text-shadow: -3px 3px 0 var(--black);
+    letter-spacing: 0.2vmin;
+}
+
+.top-bar {
+    width: 65vmin;
+    height: fit-content;
+    min-height: 0;
+    border: 1vmin solid var(--white);
+    display: flex;
+    flex-direction: row;
+}
+
+.health {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vmin;
+    border-right: 1vmin solid var(--white);
+    padding: 1vmin;
+}
+
+.live {
+    height: 4vmin;
+    aspect-ratio: 1;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    background-color: var(--white);
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+.stat {
+    color: var(--white);
+    font-size: 4vmin;
+    text-align: center;
+    padding: 1vmin;
+}
+
+.canvas,
+.over,
+.pause {
+    width: 65vmin;
+    aspect-ratio: 1;
+    border: 1vmin solid var(--white);
+}
+
+.top-bar,
+.canvas {
+    box-shadow: 0 0 4vmin var(--black);
+}
+
+.over,
+.pause {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vmin;
+}
+
+.over .title,
+.pause .title {
+    font-size: 14vmin;
+}
+
+.game,
+.controls,
+.over,
+.pause {
+    display: none;
+}
+
+.pause-resume {
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    line-height: 1;
+    margin-top: 10vmin;
+    display: none;
+}
+
+@media only screen and (orientation: portrait) {
+
+    .menu,
+    .contols {
+        gap: 22vmax;
+    }
+
+    .title {
+        font-size: 24vmin;
+    }
+
+    .over .title,
+    .pause .title {
+        font-size: 22vmin;
+    }
+
+    .btn {
+        font-size: 10vmin;
+    }
+
+    #controlsBtn {
+        display: none;
+    }
+
+    .top-bar,
+    .canvas,
+    .over,
+    .pause {
+        width: 90vmin;
+    }
+
+    .stat {
+        font-size: 6vmin;
+        padding: 2vmin;
+    }
+
+    .pause-resume {
+        display: flex;
+    }
+}
