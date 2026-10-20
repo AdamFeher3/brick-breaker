@@ -11,7 +11,7 @@ import { Health } from "./Health.js";
 
 export class Game {
 
-    constructor() {
+    constructor(audio) {
 
         this.state = state.MENU;
 
@@ -23,6 +23,8 @@ export class Game {
         this.brick = new Brick();
         this.score = new Score();
         this.health = new Health(3);
+
+        this.audio = audio;
 
         Keyboard.init(this.paddle, this.ball, this);
 
@@ -52,12 +54,14 @@ export class Game {
     update(dt) {
 
         this.paddle.update(dt);
-        this.ball.update(this.paddle, dt);
+        this.ball.update(this.paddle, this.audio, dt);
 
         // CHECK IF BALL MISS PADDLE
         const missPaddle = this.ball.fall(this.paddle);
         if ( missPaddle ) {
-            
+
+            this.audio.playSound("health");
+
             // IF BALL MISSES PADDLE LOSE HEALTH
             const gameEnd = this.health.loseHealth();
 
@@ -76,6 +80,9 @@ export class Game {
         const removeBrick = this.brick.update(this.ball);
         if ( removeBrick ) {
 
+            this.audio.playSound("ball", 0.15);
+
+            // CHECK IF ALL BRICKS ARE BREAKED
             if ( this.brick.remain <= 0 ) {
 
                 // INCREASE SCORE AND GET NEW LEVEL
@@ -133,6 +140,7 @@ export class Game {
         this.state = state.OVER;
 
         setTimeout(() => {
+            this.audio.playSound("game-over");
             dom.canvas.style.display = "none";
             dom.over.screen.style.display = "flex";
         }, 300);

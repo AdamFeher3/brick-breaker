@@ -3,7 +3,7 @@ import { state } from "../game/GameState.js";
 
 export class Menu {
 
-    static init(game) {
+    static init(game, audio) {
 
         // START GAME
         dom.menu.startBtn.addEventListener("click", () => {
@@ -38,6 +38,16 @@ export class Menu {
                 game.resume();
                 dom.pauseResumeBtn.textContent = "⏸";
             }
+        });
+
+        // PLAY BUTTON SOUND
+        dom.btns.forEach(btn => {
+            btn.addEventListener("mouseover", () => {
+                audio.playSound("button");
+            });
+            btn.addEventListener("click", () => {
+                audio.playSound("button");
+            });
         });
     }
 }

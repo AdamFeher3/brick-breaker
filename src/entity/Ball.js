@@ -28,7 +28,7 @@ export class Ball {
         this.position.y = paddle.position.y - this.size;
     }
 
-    update(paddle, dt) {
+    update(paddle, audio, dt) {
 
         if ( !this.move ) {
 
@@ -52,6 +52,8 @@ export class Ball {
             this.position.y + this.size/2 > paddle.position.y &&
             this.position.y - this.size/2 < paddle.position.y + paddle.height
         ) {
+            audio.playSound("paddle", 0.15);
+
             // BOUNCE VERTICALY
             this.speedY = -Math.abs(this.speedY);
 
@@ -65,19 +67,29 @@ export class Ball {
         }
 
         // BOUNCE BALL OFF WALLS
-        if ( this.position.x - this.size/2 < 0 ) {
+        const leftSide = this.position.x - this.size/2 < 0;
+        const rightSide = this.position.x + this.size/2 > dom.canvas.width;
+        const topSide = this.position.y - this.size/2 < 0;
+
+        if ( leftSide ) {
 
             this.position.x = this.size/2;
             this.speedX = Math.abs(this.speedX);
         }
-        else if ( this.position.x + this.size/2 > dom.canvas.width ) {
+        else if ( rightSide ) {
 
             this.position.x = dom.canvas.width - this.size/2;
             this.speedX = -Math.abs(this.speedX);
         }
 
-        if ( this.position.y - this.size/2 < 0 )
+        if ( topSide )
             this.speedY = Math.abs(this.speedY);
+
+        if (
+            leftSide ||
+            rightSide ||
+            topSide
+        ) audio.playSound("ball", 0.15);
     }
 
     fall = () => this.position.y > dom.canvas.height;

@@ -39,7 +39,10 @@ export const dom = {
     level: document.getElementById("level"),
 
     // LIVES
-    live: document.querySelectorAll(".live")
+    live: document.querySelectorAll(".live"),
+
+    // BUTTONS
+    btns: document.querySelectorAll(".btn")
 };
 
 export const size = 32;
