@@ -36,7 +36,7 @@ export class Menu {
             }
             else if ( game.state === state.PAUSE ) {
                 game.resume();
-                dom.pauseResumeBtn.textContent = "⏸";
+                dom.pauseResumeBtn.textContent = "||";
             }
         });
 
