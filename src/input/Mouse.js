@@ -20,8 +20,10 @@ export class Mouse {
             if ( game.state !== state.PLAY || !hold ) return;
 
             const rect = dom.canvas.getBoundingClientRect();
+            const scale = dom.canvas.width / rect.width;
+            const xpos = (e.clientX - rect.left) * scale;
             
-            paddle.position.x = e.clientX - rect.left;
+            paddle.position.x = xpos - paddle.width/2;
 
             if ( paddle.position.x < 0 )
                 paddle.position.x = 0;
