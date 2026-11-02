@@ -7,6 +7,8 @@
     font-family: "Jaro";
     cursor: default;
     image-rendering: pixelated;
+    user-select: none;
+    touch-action: none;
 }
 
 :root {
@@ -173,7 +175,7 @@ button:hover {
     align-items: center;
     aspect-ratio: 1;
     line-height: 1;
-    margin-top: 10vmin;
+    margin-top: 4vmin;
     display: none;
 }
 
@@ -215,5 +217,13 @@ button:hover {
 
     .pause-resume {
         display: flex;
+    }
+
+    .pause-resume,
+    .pause-resume:hover {
+        background: none;
+        border: none;
+        box-shadow: none;
+        color: var(--white);
     }
 }

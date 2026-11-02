@@ -8,6 +8,7 @@ import { Brick } from "../entity/Brick.js";
 import { level } from "../level/Level.js";
 import { Score } from "./Score.js";
 import { Health } from "./Health.js";
+import { Mouse } from "../input/Mouse.js";
 
 export class Game {
 
@@ -27,6 +28,7 @@ export class Game {
         this.audio = audio;
 
         Keyboard.init(this.paddle, this.ball, this);
+        Mouse.init(this.paddle, this.ball, this);
 
         /** @type {CanvasRenderingContext2D} */
         this.ctx = dom.canvas.getContext("2d");
